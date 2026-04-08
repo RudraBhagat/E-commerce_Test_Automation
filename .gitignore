@@ -1,0 +1,20 @@
+# Maven
+target/
+
+# Reports
+reports/
+
+# IDE
+.vscode/
+.idea/
+
+# GitHub internal
+.github/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+.tools/
