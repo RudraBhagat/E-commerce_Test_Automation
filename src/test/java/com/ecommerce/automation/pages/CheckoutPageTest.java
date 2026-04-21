@@ -26,6 +26,35 @@ public class CheckoutPageTest {
         Assert.assertEquals(context.element(locator(checkoutPage, "continueButton")).getClickCount(), 1);
     }
 
+        @Test
+        public void shouldClearAndRepopulateFieldsAcrossMultipleAttempts() throws Exception {
+        WebDriverTestDouble.Context context = WebDriverTestDouble.newContext();
+        CheckoutPage checkoutPage = new CheckoutPage(context.driver());
+        context.register(locator(checkoutPage, "firstNameInput"), "")
+            .register(locator(checkoutPage, "lastNameInput"), "")
+            .register(locator(checkoutPage, "postalCodeInput"), "");
+
+        checkoutPage.enterCheckoutInformation("J", "D", "1");
+        checkoutPage.enterCheckoutInformation("John", "Doe", "10001");
+
+        Assert.assertEquals(context.element(locator(checkoutPage, "firstNameInput")).getClearCount(), 2);
+        Assert.assertEquals(context.element(locator(checkoutPage, "lastNameInput")).getClearCount(), 2);
+        Assert.assertEquals(context.element(locator(checkoutPage, "postalCodeInput")).getClearCount(), 2);
+
+        Assert.assertEquals(
+            context.element(locator(checkoutPage, "firstNameInput")).getSentKeys(),
+            java.util.List.of("J", "John")
+        );
+        Assert.assertEquals(
+            context.element(locator(checkoutPage, "lastNameInput")).getSentKeys(),
+            java.util.List.of("D", "Doe")
+        );
+        Assert.assertEquals(
+            context.element(locator(checkoutPage, "postalCodeInput")).getSentKeys(),
+            java.util.List.of("1", "10001")
+        );
+        }
+
     @Test
     public void shouldClickFinishAndReadCompletionAndValidationMessages() throws Exception {
         WebDriverTestDouble.Context context = WebDriverTestDouble.newContext();

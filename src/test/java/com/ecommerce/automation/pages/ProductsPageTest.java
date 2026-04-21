@@ -32,6 +32,15 @@ public class ProductsPageTest {
         Assert.assertEquals(context.element(locator(productsPage, "shoppingCartLink")).getClickCount(), 1);
     }
 
+    @Test
+    public void shouldReturnEmptyBadgeWhenCartCountNotVisible() throws Exception {
+        WebDriverTestDouble.Context context = WebDriverTestDouble.newContext();
+        ProductsPage productsPage = new ProductsPage(context.driver());
+        context.register(locator(productsPage, "shoppingCartBadge"), "");
+
+        Assert.assertEquals(productsPage.getCartBadgeCount(), "");
+    }
+
     private static By locator(Object target, String fieldName) throws Exception {
         Field field = target.getClass().getDeclaredField(fieldName);
         field.setAccessible(true);

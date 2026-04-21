@@ -141,6 +141,16 @@ TestNG/Surefire artifacts are available in:
 - Add-to-cart and checkout flow
 - Checkout validation for missing required fields
 
+## QA Portfolio Artifacts
+
+To support interview and campus shortlisting discussions, this repository now includes dedicated QA documentation:
+
+- Test Strategy: `docs/qa/TEST_STRATEGY.md`
+- Test Case Catalog: `docs/qa/TEST_CASES.md`
+- Defect Reports: `docs/qa/BUG_REPORTS.md`
+
+These artifacts show end-to-end test planning, traceability, and defect reporting based on real execution evidence.
+
 ## Troubleshooting
 
 - If browser startup fails, verify local browser installation and rerun.
