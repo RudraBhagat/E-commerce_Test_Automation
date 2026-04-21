@@ -143,7 +143,7 @@ TestNG/Surefire artifacts are available in:
 
 ## QA Portfolio Artifacts
 
-To support interview and campus shortlisting discussions, this repository now includes dedicated QA documentation:
+This repository now includes dedicated QA documentation:
 
 - Test Strategy: `docs/qa/TEST_STRATEGY.md`
 - Test Case Catalog: `docs/qa/TEST_CASES.md`
